@@ -8,7 +8,7 @@ class LoginPage extends Page {
     }
 
     get password() {
-        return $("(//input[@type='password'])")
+        return $("(//input[@type='password'])[1]")
     }
 
     get alertMessage() {
@@ -58,7 +58,9 @@ class LoginPage extends Page {
     async login(emailAddress, password) {
         await this.emailAddress.setValue(emailAddress);
         await this.submitEmail.click();
+        await browser.pause(2000)
         await this.password.setValue(password);
+        await browser.pause(2000)
         await this.loginButton.click();
     }
 }
