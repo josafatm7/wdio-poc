@@ -1,4 +1,5 @@
 const loginPage = require('./login.page');
+const gamesHub = require('./gameshub.page')
 
 class user {
 
@@ -16,11 +17,13 @@ class user {
             domain: '.nytimes.com',
         })
         await loginPage.open();
-        (await $("//span[@class='pz-nav__hamburger-inner'][1]")).click()
+        await gamesHub.hamburgerBtn.click()
         await browser.pause(5000)
     }
 
     async login() {
+        await loginPage.open();
+        await (await gamesHub.loginBtn).click();
         await this.delCookie();
         await this.setCookie();
 
