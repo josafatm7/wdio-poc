@@ -1,11 +1,9 @@
 const loginPage = require('./login.page');
-const gamesHub = require('./gameshub.page')
+const nav = require('./nav.page')
 
 class user {
 
-    async delCookie() {
-        await browser.deleteCookies('NYT-S');
-    }
+    async delCookie() { await browser.deleteCookies('NYT-S'); }
 
     async setCookie() {
         await browser.setCookies({
@@ -17,16 +15,13 @@ class user {
             domain: '.nytimes.com',
         })
         await loginPage.open();
-        await gamesHub.hamburgerBtn.click()
-        await browser.pause(5000)
     }
 
     async login() {
         await loginPage.open();
-        await (await gamesHub.loginBtn).click();
+        await (await nav.loginBtn).click();
         await this.delCookie();
         await this.setCookie();
-
     }
 }
 module.exports = new user();
