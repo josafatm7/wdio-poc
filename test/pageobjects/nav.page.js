@@ -25,8 +25,6 @@ class nav {
     get sudokuNavBtn() { return $("") }
     get storiesNavBtn() { return $("") }
     get solveavBtn() { return $("") }
-
-
 }
 
 module.exports = new nav();

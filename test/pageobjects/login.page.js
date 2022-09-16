@@ -1,6 +1,5 @@
 const Page = require('./page');
 
-
 class LoginPage extends Page {
 
     get emailAddress() { return $("(//input[@type='email'])[1]") }
