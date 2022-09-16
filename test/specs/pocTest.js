@@ -9,7 +9,7 @@ describe('Proof of concept Demo', async () => {
         //assert the login is sucsessful 
     })
 
-    xit('Make Two Changes In Puzzle settings', async () => {
+    it('Make Two Changes In Puzzle settings', async () => {
         await nav.hamburgerBtn.click()
         await nav.dailyXWordNavBtn.click()
         await game.playBtn.click()
@@ -23,12 +23,11 @@ describe('Proof of concept Demo', async () => {
         await game.closeBtn.click()
         await browser.pause(1000)
         await game.gearBtn.click()
-
         //need to add assertions 
     })
 
 
-    xit('Reveal Mini Puzzle ', async () => {
+    it('Reveal Mini Puzzle ', async () => {
         await nav.hamburgerBtn.click()
         await browser.pause(2000)
         await nav.theMiniNavBtn.click()
@@ -49,7 +48,7 @@ describe('Proof of concept Demo', async () => {
         //verify the ribon at homepage (//div[@class='progressIconContent miniProgressBlueStar'])[1]
     })
 
-    xit('Revealing Daily Puzzle  ', async () => {
+    it('Revealing Daily Puzzle  ', async () => {
         await nav.hamburgerBtn.click()
         await browser.pause(2000)
         await nav.dailyXWordNavBtn.click()
@@ -71,26 +70,23 @@ describe('Proof of concept Demo', async () => {
     })
 
     it('Verifify Each Games In Nav Menu', async () => {
-        await (await nav.hamburgerBtn).click()
+        await nav.hamburgerBtn.click()
         await browser.pause(1000)
-        const navGames = await $$("(//div[@aria-label='Navigation menu']//nav//div/a[position()=1])[position()<8]")
-        for (const elem of navGames) {
+        const navGames = await nav.allGames;
 
-            await browser.pause(2000)
+        for (const elem of navGames) {
             await elem.click()
-            let url = await browser.getUrl()
-            console.log(url)
-            if (url === "https://www.nytimes.com/games/wordle/index.html") {
-                await browser.pause(2000)
-                await $("(//*[name()='svg'][@class='game-icon'])[5]").click()
-                await browser.pause(2000)
-                await $("(//*[name()='svg'][@class='NavIcon-module_burgerSvg__WKh0A'])[1]").click()
-                await browser.pause(2000)
-                await $("(//div[@class='Nav-module_navItem__Kfeh3'])[6]").click()
+            if (await browser.getUrl() === "https://www.nytimes.com/games/wordle/index.html") {
+                await browser.pause(1000)
+                await game.wordleCloseBtn.click()
+                await browser.pause(1000)
+                await nav.wordleNavBtn.click()
+                await browser.pause(1000)
+                await nav.wordleMoreGames.click()
             }
-            await browser.pause(2000)
+            await browser.pause(1000)
             await nav.hamburgerBtn.click()
-            await browser.pause(2000)
+            await browser.pause(1000)
 
         }
     })

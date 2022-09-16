@@ -25,6 +25,20 @@ class nav {
     get sudokuNavBtn() { return $("") }
     get storiesNavBtn() { return $("") }
     get solveavBtn() { return $("") }
+
+    /*Top NYT Games*/
+    get allGames() { return $$("(//div[@aria-label='Navigation menu']//nav//div/a[position()=1])[position()<8]") }
+
+    /*wordle*/
+    get wordleNavBtn() { return $("(//*[name()='svg'][@class='NavIcon-module_burgerSvg__WKh0A'])[1]") }
+    get wordleMoreGames() { return $("(//div[@class='Nav-module_navItem__Kfeh3'])[6]") }
+
+
+
+
+
+
+
 }
 
 module.exports = new nav();

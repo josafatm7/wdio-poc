@@ -21,6 +21,10 @@ class gamePage {
     get closeBtn() { return $("//div[@aria-label='close']") }
     get viewAllGamesBtn() { return $("//button[@aria-label='View all games']") }
 
+    /*wordle*/
+    get wordleCloseBtn() { return $("(//*[name()='svg'][@class='game-icon'])[5]") }
+
+
 
 }
 
