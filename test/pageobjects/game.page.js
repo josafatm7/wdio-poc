@@ -4,15 +4,18 @@ class gamePage {
     get playBtn() { return $("//button[@aria-label='Play']") }
     get gearBtn() { return $("//i[@class='xwd__toolbar_icon--settings-gear']") }
 
-    /*Puzzle Settings*/
+    /*Puzzle Modal Settings*/
     get moveBtn() { return $("//input[@value='move']") }
     get nextClueBtn() { return $("//input[@name='autoAdvance']") }
     get closeBtn() { return $("//button[@aria-label='Save and close']") }
 
     /*nav-reveal*/
     get revealBtn() { return $("//button[@aria-label='reveal'] ") }
+    get resetBtn() { return $("//button[@aria-label='Reset']") } //Daily
+
     get revealMiniBtn() { return $("(//button[@type='button'])[13]") } //mini
     get revealDailylBtn() { return $("(//button[@type='button'])[14]") } //Daily
+    //button[@aria-label='Reset']
 
     /*reveal modal*/
     get confirmRevealBtn() { return $("//button[@aria-label='Reveal']") }
