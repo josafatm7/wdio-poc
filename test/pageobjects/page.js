@@ -1,15 +1,7 @@
-/**
-* main page object containing all methods, selectors and functionality
-* that is shared across all page objects
-*/
-module.exports = class Page {
-    /**
-    * Opens a sub page of the page
-    * @param path path of the sub page (e.g. /path/to/page.html)
-    */
-    open(path) {
-        return browser.url(`https://www.nytimes.com/crosswords`)
+/* main page objects*/
+module.exports = new class Page {
+
+    open() {
+        return browser.url("https://www.nytimes.com/crosswords")
     }
-
-
 }

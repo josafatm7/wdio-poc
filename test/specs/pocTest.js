@@ -1,4 +1,4 @@
-const user = require('../pageobjects/userLogin');
+const user = require('../pageobjects/login.page');
 const nav = require('../pageobjects/nav.page');
 const game = require('../pageobjects/game.page')
 
@@ -12,6 +12,7 @@ describe('Proof of concept Demo', async () => {
     it('Make Two Changes In Puzzle settings', async () => {
         await nav.hamburgerBtn.waitForExist()
         await nav.hamburgerBtn.click()
+        await browser.pause(2000)
         await nav.dailyXWordNavBtn.waitForExist()
         await nav.dailyXWordNavBtn.click()
         await game.playBtn.waitForExist()
