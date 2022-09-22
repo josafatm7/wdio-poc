@@ -9,10 +9,9 @@ describe('Proof of concept Demo', async () => {
         //assert the login is sucsessful 
     })
 
-    it('Make Two Changes In Puzzle settings', async () => {
+    xit('Make Two Changes In Puzzle settings', async () => {
         await nav.hamburgerBtn.waitForExist()
         await nav.hamburgerBtn.click()
-        await browser.pause(2000)
         await nav.dailyXWordNavBtn.waitForExist()
         await nav.dailyXWordNavBtn.click()
         await game.playBtn.waitForExist()
@@ -26,22 +25,28 @@ describe('Proof of concept Demo', async () => {
         await game.moveBtn.click()
         await game.nextClueBtn.waitForExist()
         await game.nextClueBtn.click()
-        await game.closeBtn.waitForExist()
-        await game.closeBtn.click()
+        await game.saveCloseBtn.waitForExist()
+        await game.saveCloseBtn.click()
         //need to add assertions 
     })
 
 
     xit('Reveal Mini Puzzle ', async () => {
         await nav.hamburgerBtn.click()
+        await browser.pause(1000)
         await nav.theMiniNavBtn.click()
+        await browser.pause(1000)
         await game.playBtn.click()
         if ((await game.resetBtn).isDisplayed()) {
             (await game.resetBtn).click()
         }
         await game.revealBtn.click()
-        await game.revealMiniBtn.click()
+        await browser.pause(1000)
+        await game.revealPuzzlelBtn.click()
+        await browser.pause(1000)
         await game.confirmRevealBtn.click()
+
+        await browser.pause(2000)
         await game.closeBtn.click()
         //verify the congrats text 
         //make sure that the puzzle is not alredy solved 
@@ -51,13 +56,18 @@ describe('Proof of concept Demo', async () => {
 
     xit('Revealing Daily Puzzle  ', async () => {
         await nav.hamburgerBtn.click()
+        await browser.pause(1000)
         await nav.dailyXWordNavBtn.click()
+        await browser.pause(1000)
         await game.playBtn.click()
+        await browser.pause(1000)
         if ((await game.resetBtn).isDisplayed()) {
             (await game.resetBtn).click()
         }
         await game.revealBtn.click()
-        await game.revealDailylBtn.click()
+        await browser.pause(1000)
+        await game.revealPuzzlelBtn.click()
+        await browser.pause(1000)
         await game.confirmRevealBtn.click()
         await game.closeBtn.click()
         //verify the congrats text 
@@ -66,7 +76,7 @@ describe('Proof of concept Demo', async () => {
         //verify the ribon at homepage (//div[@class='progressIconContent miniProgressBlueStar'])[1]
     })
 
-    xit('Verifify Each Games In Nav Menu', async () => {
+    it('Verifify Each Games In Nav Menu', async () => {
         await nav.hamburgerBtn.click()
         const navGames = await nav.allGames;
 

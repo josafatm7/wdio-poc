@@ -1,34 +1,31 @@
 class gamePage {
 
     /*general Puzzles buttons*/
-    get playBtn() { return $("//button[@aria-label='Play']") }
-    get gearBtn() { return $("//i[@class='xwd__toolbar_icon--settings-gear']") }
+    get playBtn() { return $(".pz-moment__button") }
+    get gearBtn() { return $(".xwd__toolbar_icon--settings-gear") }
 
-    /*Puzzle Modal Settings*/
-    get moveBtn() { return $("//input[@value='move']") }
-    get nextClueBtn() { return $("//input[@name='autoAdvance']") }
-    get closeBtn() { return $("//button[@aria-label='Save and close']") }
 
-    /*nav-reveal*/
-    get revealBtn() { return $("//button[@aria-label='reveal'] ") }
-    get resetBtn() { return $("//button[@aria-label='Reset']") } //Daily
+    /*Puzzle Settings Modal*/
+    get moveBtn() { return $("input[value='move']") }
+    get nextClueBtn() { return $("input[name='autoAdvance']") }
+    get saveCloseBtn() { return $("button[aria-label='Save and close']") }
 
-    get revealMiniBtn() { return $("(//button[@type='button'])[13]") } //mini
-    get revealDailylBtn() { return $("(//button[@type='button'])[14]") } //Daily
-    //button[@aria-label='Reset']
+    /*nav-menu*/
+    get revealBtn() { return $("button[aria-label='reveal'] ") }
+    get resetBtn() { return $("button[aria-label='Reset']") } //Daily
 
-    /*reveal modal*/
-    get confirmRevealBtn() { return $("//button[@aria-label='Reveal']") }
+    /*nav-menu-reveal-menu*/
+    get revealPuzzlelBtn() { return $("li[class='xwd__tool--button xwd__tool--texty xwd__tool--open'] li:nth-child(3) button:nth-child(1)") } //Daily
+
+    /* confirming modal content*/
+    get confirmRevealBtn() { return $("button[aria-label='Reveal']") }
 
     /*congrats modal*/
-    get closeBtn() { return $("//div[@aria-label='close']") }
-    get viewAllGamesBtn() { return $("//button[@aria-label='View all games']") }
+    get closeBtn() { return $(".pz-icon.pz-icon-close") }
+    get viewAllGamesBtn() { return $("button[aria-label='View all games']") }
 
     /*wordle*/
-    get wordleCloseBtn() { return $("(//*[name()='svg'][@class='game-icon'])[5]") }
-
-
-
+    get wordleCloseBtn() { return $("div[class='Modal-module_closeIcon__b4z74']") }
 }
 
 module.exports = new gamePage();
