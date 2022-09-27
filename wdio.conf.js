@@ -1,3 +1,7 @@
+let baseUrl = (process.env.USE_STG == 'true')
+    ? 'https://www.stg.nytimes.com/crosswords'
+    : 'https://www.nytimes.com/crosswords'
+
 exports.config = {
     //
     // ====================
@@ -59,6 +63,11 @@ exports.config = {
         maxInstances: 5,
         //
         browserName: 'chrome',
+        'goog:chromeOptions': {
+            // to run chrome headless the following flags are required
+            // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
+            // args: ['--headless', '--disable-gpu'],
+        },
         acceptInsecureCerts: true
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
@@ -90,13 +99,13 @@ exports.config = {
     //
     // If you only want to run your tests until a specific amount of tests have failed use
     // bail (default is 0 - don't bail, run all tests).
-    bail: 0,
+    bail: 1,
     //
     // Set a base URL in order to shorten url command calls. If your `url` parameter starts
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl,
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -112,7 +121,10 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
+    //services: ['geckodriver'],
     services: ['chromedriver'],
+
+
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber

@@ -22,6 +22,8 @@ class user {
         await nav.loginBtn.click();
         await this.delCookie();
         await this.setCookie();
+        await expect(browser).toHaveUrlContaining('nytimes.com/crosswords')
+
     }
 }
 module.exports = new user();

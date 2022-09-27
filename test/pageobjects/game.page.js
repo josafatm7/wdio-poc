@@ -26,6 +26,25 @@ class gamePage {
 
     /*wordle*/
     get wordleCloseBtn() { return $("div[class='Modal-module_closeIcon__b4z74']") }
+
+    async revealPuzzle() {
+        await this.playBtn.waitForExist()
+        await browser.pause(1000)
+        await this.playBtn.click()
+        await browser.pause(1000)
+        if ((await this.resetBtn).isDisplayed()) {
+            (await this.resetBtn).click()
+        }
+        await this.revealBtn.click()
+        await browser.pause(1000)
+        await this.revealPuzzlelBtn.click()
+        await browser.pause(1000)
+        await this.confirmRevealBtn.click()
+        await browser.pause(2000)
+        await this.closeBtn.click()
+    }
+
+
 }
 
 module.exports = new gamePage();
