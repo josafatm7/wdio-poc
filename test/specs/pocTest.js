@@ -3,14 +3,11 @@ const nav = require('../pageobjects/nav.page');
 const game = require('../pageobjects/game.page');
 const conf = require('../../wdio.conf').config;
 
-
-
 describe('Proof of concept Demo', async () => {
 
     it('NYT-Games Login ', async () => {
         await user.login()
         //await expect(game.loginBtn()).
-
     })
 
     it('Make Two Changes In Puzzle settings', async function () {
